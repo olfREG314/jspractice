@@ -201,15 +201,72 @@ console.log(`reversed number ${rev_n}`); */
 // for (let key in salaries) sum += salaries[key];
 // console.log(sum);
 // -------------multiply numeric------------
-function multiplyNumeric(obj) {
-  for (let key in obj) {
-    if (typeof obj[key] == "number") obj[key] *= 2;
-  }
+// function multiplyNumeric(obj) {
+//   for (let key in obj) {
+//     if (typeof obj[key] == "number") obj[key] *= 2;
+//   }
+// }
+// let menu = {
+//   width: 200,
+//   height: 300,
+//   title: "my menu",
+// };
+// multiplyNumeric(menu);
+// console.log(menu);
+// ---------------calculator---------------
+// let prompt = require("prompt-sync")();
+// let calculator = {
+//   n: 0,
+//   n2: 0,
+//   read() {
+//     this.n = +prompt("input number");
+//     this.n2 = +prompt("input number");
+//   },
+//   sum() {
+//     return this.n + this.n2;
+//   },
+//   mul() {
+//     return this.n * this.n2; //multiply changes the string to number auto
+//   },
+// };
+// calculator.read();
+// console.log(calculator.n, calculator.n2);
+// console.log("sum" + calculator.sum());
+// console.log("mul" + calculator.mul());
+// ------------------chaining----------------
+// let ladder = {
+//   step: 0,
+//   up() {
+//     this.step++;
+//     // console.log(this);//returns obj
+//     return this;
+//   },
+//   down() {
+//     this.step--;
+
+//     return this;
+//   },
+//   showStep: function () {
+//     console.log(this.step);
+//     return this;
+//   },
+// };
+// ladder.up().up().down().showStep().down().showStep();
+// ------------calculator with constructor-------------
+function Calculator() {
+  this.read = function () {
+    let prompt = require("prompt-sync")();
+    this.n1 = +prompt("n1-");
+    this.n2 = +prompt("n2-");
+  };
+  this.sum = function () {
+    return this.n1 + this.n2;
+  };
+  this.mul = function () {
+    return this.n1 * this.n2;
+  };
 }
-let menu = {
-  width: 200,
-  height: 300,
-  title: "my menu",
-};
-multiplyNumeric(menu);
-console.log(menu);
+let calculator = new Calculator();
+calculator.read();
+console.log(calculator.sum());
+console.log(calculator.mul());
