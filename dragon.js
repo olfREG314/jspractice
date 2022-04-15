@@ -253,6 +253,7 @@ console.log(`reversed number ${rev_n}`); */
 // };
 // ladder.up().up().down().showStep().down().showStep();
 // ------------calculator with constructor-------------
+<<<<<<< HEAD
 // function Calculator() {
 //   this.read = function () {
 //     let prompt = require("prompt-sync")();
@@ -359,3 +360,4 @@ console.log(`reversed number ${rev_n}`); */
 // ----------------NUMBERS------------------------
 // console.log((0.1 + 0.2).toFixed(2) == 0.3);
 // console.log(9999999999999999);
+
