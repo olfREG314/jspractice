@@ -253,20 +253,109 @@ console.log(`reversed number ${rev_n}`); */
 // };
 // ladder.up().up().down().showStep().down().showStep();
 // ------------calculator with constructor-------------
-function Calculator() {
-  this.read = function () {
-    let prompt = require("prompt-sync")();
-    this.n1 = +prompt("n1-");
-    this.n2 = +prompt("n2-");
-  };
-  this.sum = function () {
-    return this.n1 + this.n2;
-  };
-  this.mul = function () {
-    return this.n1 * this.n2;
-  };
-}
-let calculator = new Calculator();
-calculator.read();
-console.log(calculator.sum());
-console.log(calculator.mul());
+// function Calculator() {
+//   this.read = function () {
+//     let prompt = require("prompt-sync")();
+//     this.n1 = +prompt("n1-");
+//     this.n2 = +prompt("n2-");
+//   };
+//   this.sum = function () {
+//     return this.n1 + this.n2;
+//   };
+//   this.mul = function () {
+//     return this.n1 * this.n2;
+//   };
+// }
+// let calculator = new Calculator();
+// calculator.read();
+// console.log(calculator.sum());
+// console.log(calculator.mul());
+// -------------accumulator-----------------
+// function Accumulator(startingValue) {
+//   this.value = startingValue;
+//   this.read = function () {
+//     const prompt = require("prompt-sync")();
+//     this.value += +prompt("value=");
+//   };
+// }
+// let accumulator = new Accumulator(1);
+// accumulator.read();
+// accumulator.read();
+// console.log(accumulator.value);
+// ------------------------------------------------------------
+// PROMISE
+// ------------------------------------------------------------
+// let promise = new Promise(function (resolve, reject) {
+//   setTimeout(() => console.log("abc"), 3000);
+// });
+// console.log("......");
+// let promise = new Promise(function (resolve, reject) {
+//   if (0) {
+//     resolve("resolved");
+//   }
+//   setTimeout(() => reject(new Error("error")), 3000);
+// });
+// promise.then(
+//   (result) => console.log(result),
+//   (error) => console.log(error)
+// );
+// ------------load script asynchronously----------------------
+// document is not defined
+// function loadScript(src) {
+//   return new Promise(function (resolve, reject) {
+//     let script = document.createElement("script");
+//     script.src = src;
+//     script.onload = () => resolve(script);
+//     script.onerror = () => reject(new Error(`script load error ${error}`));
+//     document.head.append(script);
+//   });
+// }
+// let promise = loadScript(
+//   "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"
+// );
+// promise.then(
+//   (scirpt) => console.log(`script loaded ${script.src}`),
+//   (error) => console.log(`${error.message}`)
+// );
+// ------------delay with promise-------------
+// function delay(ms) {
+//   return new Promise((resolve) => setTimeout(resolve, ms));//resolve is called without arg cause we don't return anything just ensure delay
+// }
+// delay(3000).then(() => console.log("runs after 3 seconds"));
+// ------------using fetch & promise to get user's github avatar-----------------
+// function getUserAvatar() {
+//   const name = "olfreg314";
+//   fetch(`https://api.github.com/users/${name}`)
+//     .then((response) => response.json())
+//     .then((gitHubUser) => {
+//       let img = document.createElement("img");
+//       img.src = gitHubUser.avatar_url;
+//       img.classsName = "github_avatar";
+//       document.body.append(img);
+//     });
+// }
+// getUserAvatar();
+// ------------------------------------------------------------
+// SIEVE OF ERATOSTHENES
+// ------------------------------------------------------------
+// let prompt = require("prompt-sync")();
+// let n = prompt("upto what no.");
+// let arr = [];
+// arr[0] = arr[1] = false;
+// for (let i = 2; i <= n; ++i) {
+//   arr[i] = true;
+// }
+// for (let i = 2; i <= n; ++i) {
+//   if (arr[i] == true) {
+//     for (let j = i * 2; j <= n; j += i) {
+//       arr[j] = false;
+//     }
+//   }
+// }
+// console.log(arr);
+// ------------------------------------------------------------
+// DATA TYPES
+// ------------------------------------------------------------
+// ----------------NUMBERS------------------------
+// console.log((0.1 + 0.2).toFixed(2) == 0.3);
+// console.log(9999999999999999);
